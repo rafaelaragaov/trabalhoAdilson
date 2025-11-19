@@ -24,7 +24,7 @@ public class Emprestimo {
 
     public void devolver() {
         this.dataDevolucao = LocalDate.now();
-        recurso.setDisponivel(true);
+        recurso.devolver(); 
     }
 
     public boolean estaAtrasado() {
@@ -36,5 +36,6 @@ public class Emprestimo {
         long dias = java.time.temporal.ChronoUnit.DAYS.between(dataPrevista, dataDevolucao);
         return recurso.calcularMulta(dias) * usuario.fatorMulta();
     }
+
 
     
